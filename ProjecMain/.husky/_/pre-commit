@@ -1,9 +1,3 @@
 #!/usr/bin/env sh
 . "$(dirname "$0")/h"
-echo "Running ESLint..."
-npm run lint
-
-echo "Running Prettier..."
-npm run format
-
-echo "Husky pre-commit hook finished."
+npx lint-staged
