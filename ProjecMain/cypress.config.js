@@ -1,27 +1,27 @@
-const { defineConfig } = require("cypress");
-const webpackConfig = require("./config/webpack.cypress.config");
+const { defineConfig } = require('cypress');
+const webpackConfig = require('./config/webpack.cypress.config');
 
 module.exports = defineConfig({
-  component: {
-    devServer: {
-      framework: "react",
-      bundler: "webpack",
-      webpackConfig, // webpackConfig: webpackConfig
-    },
-    setupNodeEvents(on, config) {
-      // component testing node events setup code
-      // https://docs.cypress.io/guides/tooling/code-coverage
-      require('@cypress/code-coverage/task')(on, config);
+    component: {
+        devServer: {
+            framework: 'react',
+            bundler: 'webpack',
+            webpackConfig, // webpackConfig: webpackConfig
+        },
+        setupNodeEvents(on, config) {
+            // component testing node events setup code
+            // https://docs.cypress.io/guides/tooling/code-coverage
+            require('@cypress/code-coverage/task')(on, config);
 
-      on('file:preprocessor', require('@cypress/code-coverage/use-babelrc'));
+            on('file:preprocessor', require('@cypress/code-coverage/use-babelrc'));
 
-      return config;
+            return config;
+        },
     },
-  },
 
-  e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
+    e2e: {
+        setupNodeEvents(on, config) {
+            // implement node event listeners here
+        },
     },
-  },
 });

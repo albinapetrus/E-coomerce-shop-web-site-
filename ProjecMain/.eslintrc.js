@@ -36,7 +36,7 @@ const config = {
         },
     },
     plugins: ['simple-import-sort', 'react'],
-    ignorePatterns: ['node_modules'],
+    ignorePatterns: ['node_modules','src/bootstrap.js',],
     rules: {
         /*https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/filename-case.md*/
         'unicorn/filename-case': [
@@ -68,7 +68,7 @@ const config = {
                         },
                     },
                 ],
-                'no-unused-vars': 'off'
+                'no-unused-vars': 'off',
             },
         },
     ],
