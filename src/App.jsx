@@ -8,7 +8,6 @@ import  './App.css'; // Імпорт модулів
 
 import Items from "./Components/Items"
 
-import AboutUs from './Components/pages/Aboutus'; 
 
 class App extends React.Component {
     constructor(props) {

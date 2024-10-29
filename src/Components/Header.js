@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { FaShoppingCart } from "react-icons/fa";
 
-import AboutUs from '../pages/Aboutus'; 
+ 
 
 export default function Header() {
   return (
