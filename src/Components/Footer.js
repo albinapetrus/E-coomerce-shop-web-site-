@@ -7,8 +7,13 @@ import '../App.css'; // Використовуємо модулі
 export default function Footer() {
   return (
     <footer>
-     {/* <img src = './assets/img/free-icon-instagram-2111463.png' height={'40px'}></img> */}
-    Всі права захищені &copy;
+<h1>Contact and follow us:</h1>
+      <img src = {"img/instagram.png"} style={{ width: '50px', height: 'auto' }}/>
+      <img src = {"img/whatsup.png"} style={{ width: '50px', height: 'auto' }}/>
+      <img src = {"img/tiktok.png"} style={{ width: '50px', height: 'auto' }}/>
+      <img src = {"img/te.png"} style={{ width: '50px', height: 'auto' }}/>
+
+  
     </footer>
   )
 }

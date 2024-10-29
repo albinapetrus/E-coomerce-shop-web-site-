@@ -4,10 +4,16 @@ import Header  from './Components/Header';
 
 import Footer from './Components/Footer';
 
-import  './App.css'; // Імпорт модулів
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Items from "./Components/Items"
 
+import AboutUs from './Components/AboutUs';
+
+
+import Contacts from './Components/Contacts';
+
+import Form from './Components/Form';
 
 class App extends React.Component {
     constructor(props) {
@@ -69,9 +75,16 @@ class App extends React.Component {
     render() {
         return (
             <div className="wrapper">
-                <Header />
-                <Items items={this.state.items}  />
-                <Footer />
+                  <Router>
+                    <Header />
+                    <Routes>
+                        <Route path="/" element={<Items items={this.state.items} />} /> {/* Головна сторінка */}
+                        <Route path="/about" element={<AboutUs />} /> {/* Сторінка "Про нас" */}
+                        <Route path="/contacts" element={<Contacts />} /> {/* Сторінка "Контакти" */}
+                        <Route path="/form" element={<Form />} />
+                    </Routes>
+                    <Footer />
+                </Router>
             </div>
         );
     }
