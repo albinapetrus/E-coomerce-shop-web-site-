@@ -1,0 +1,121 @@
+header{
+    overflow: hidden;
+    
+    width: 100%;
+    position: relative;
+}
+header .logo {
+    font-weight: 600;
+    font-size: 20px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo:hover{
+    
+    color: orange;
+}
+
+
+header ul.nav{
+    float: right;
+    list-style: none;
+    text-decoration: none;
+}
+header ul.nav li{
+    display: inline;
+    margin-left: 25px;
+    cursor: pointer;
+    transition: opacity 500ms ease;
+    
+}
+header ul.nav li a{
+    text-decoration: none;
+    color: inherit;
+}
+header ul.nav li:hover{
+    opacity: 0.5;
+}
+header .presentation {
+    margin: 50px 0;
+    background: url('../../public/img/1649165522.jpeg') no-repeat;
+
+   width: 90% ;
+  height: 350px;
+  background-size: cover; 
+  background-position: center center;
+  background-blend-mode: multiply;
+  background-color: rgb(150, 154, 157);
+  position: relative;
+}
+
+header .shopCartButton {
+    float: right;
+    cursor: pointer;
+    transition: color, transform, 500ms ease;
+}
+
+header .shopCartButton:hover {
+    color: green;
+    transform: scale(1.17);
+}
+header .shopCartButton.active {
+    color: green; /* Або інший колір, який ви хочете */
+    transform: scale(1.17);
+}
+
+.shopCart{
+    position:absolute;
+    top: 30px;
+    right: 0;
+    width: 450px;
+    background:  rgb(209, 214, 218);
+    -webkit-box-shadow: 4px 5px 15px -7px gray;
+    box-shadow: 4px 5px 15px -7px gray;
+    z-index: 1000;
+    padding: 20px;
+    padding-bottom: 20px;
+    max-height: 400px; /* Обмежте максимальну висоту */
+    overflow-y: auto; 
+}
+
+
+header .presentation:after {
+    content: 'Найкращі товари для вашого дому' ;
+position: absolute;
+top:100px;
+left: 50px;
+width: 300px;
+font-size: 40px;
+font-weight: 600;
+color: aliceblue;
+}
+
+header .presentation::before {
+    content: 'по низьким цінам' ;
+position: absolute;
+top:250px;
+left: 50px;
+width: 300px;
+font-size: 15px;
+font-weight: 300;
+color: aliceblue;
+}
+
+header .shopCart .item{
+    float:left;
+    margin-bottom:20px ;
+}
+
+.shopCart .empty h2{
+font-size: 20px;
+margin-bottom: 20px;
+
+}
+
+
+.sum{
+    font-weight: 600;
+    color: green;
+}   
+
