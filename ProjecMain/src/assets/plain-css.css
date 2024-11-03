@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,300&display=swap');
+
+body {
+    background: rgb(221, 224, 225);
+    color: rgb(120, 117, 117);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    margin: 0;
+    padding: 30px;
+    overflow-x: hidden; /* Запобігає горизонтальному прокручуванню */
+    max-width: 100vw; /* Обмежує ширину body до ширини вікна */
+}
+
+* {
+    margin: 0px;
+    padding: 0;
+}
+
+
+main{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+
+
+

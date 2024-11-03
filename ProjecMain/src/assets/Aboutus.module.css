@@ -1,0 +1,72 @@
+.container{
+    display: flexbox;
+    text-align: center;
+    background:linear-gradient(to bottom,rgb(232, 231, 231), rgba(7, 160, 248, 0.724), rgba(33, 139, 238, 0.724),  rgba(7, 160, 248, 0.724), rgb(232, 231, 231));
+   margin: 50px 0 80px 0;
+}
+.block0{
+    text-align: center;
+    
+ 
+        display: flex; /* Використання Flexbox */
+        align-items: center; /* Вирівнювання по вертикалі */
+   margin-top: 30px;
+   margin-bottom: 30px;
+   margin-left: 25%;
+   text-shadow: 2px 30px 4px rgba(0, 0, 0, 0.5);
+}
+.block{
+    text-align: left;
+    background: rgb(221, 221, 221);
+ 
+        display: flex; /* Використання Flexbox */
+        align-items: center; /* Вирівнювання по вертикалі */
+   margin-top: 30px;
+   margin-bottom: 30px;
+   margin-left: 50%;
+}
+.icon1{
+    margin: 30px 30px 30px 30px;
+
+height: 400px;
+ 
+}
+ .icon{
+    margin: 30px 30px 30px 30px;
+
+height: 200px;
+filter: drop-shadow(0px 4px 10px rgba(7, 95, 248, 0.724));
+ 
+}
+
+.welcome-text{
+    margin-left: 30px ;
+}
+.welcome-text1{
+    margin-right: 30px ;
+}
+.my-heading{
+margin-left: 20px;
+}
+.block2{
+    text-align: left;
+    background: rgb(221, 221, 221);
+ 
+        display: flex; /* Використання Flexbox */
+        align-items: center; /* Вирівнювання по вертикалі */
+   margin-top: 30px;
+   margin-bottom: 30px;
+   margin-right: 50%;
+}
+
+.my-heading2{
+    margin-left: 82%;
+}
+h3{
+    color: rgb(136, 134, 134);
+    margin-left: 30px;
+    text-shadow: 2px 30px 4px rgba(0, 0, 0, 0.5);
+}
+.wrapper-about{
+    margin-bottom: 50px;
+}
