@@ -6,19 +6,22 @@ import Footer from './Components/Footer';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Items from "./Components/Items"
+import Items from "./Components/Items";
 
-import AboutUs from './Components/AboutUs';
+import AboutUs from './Components/Aboutus';
 
 
 import Contacts from './Components/Contacts';
 
 import Form from './Components/Form';
 
+
+
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            orders: [],
             items: [
                 {
                     id: 1,
@@ -66,28 +69,20 @@ class App extends React.Component {
                     img: 'Bun-armchair.jpeg',
                     desc: 'Велике незвижне крісло',
                     category: 'Дівани',
-                    price: '100'
+                    price: '300'
                 }
             ]
         };
+      
     }
 
     render() {
         return (
             <div className="wrapper">
-                  <Router>
-                    <Header />
-                    <Routes>
-                        <Route path="/" element={<Items items={this.state.items} />} /> {/* Головна сторінка */}
-                        <Route path="/about" element={<AboutUs />} /> {/* Сторінка "Про нас" */}
-                        <Route path="/contacts" element={<Contacts />} /> {/* Сторінка "Контакти" */}
-                        <Route path="/form" element={<Form />} />
-                    </Routes>
-                    <Footer />
-                </Router>
+                  
             </div>
         );
     }
 }
-
+   
 export default App;

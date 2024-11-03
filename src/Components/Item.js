@@ -1,20 +1,21 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import Items from './Items';
+import styles from '../assets/Item.module.css';
 
+import Order from './Order';
 
 export class Item extends Component {
   render() {
     return (
-      <div className = 'item'>
-       <img src={"./img/" + this.props.item.img} />
-       <h2>{this.props.item.title}</h2>
-       <p>{this.props.item.desc}</p>
-       <b>{this.props.item.price}$</b>
-      <div className='add-to-cart'>+</div>
-        </div>
-    )
+      <div className={styles.item}>
+        <img src={"./img/" + this.props.item.img} alt={this.props.item.title} />
+        <h2></h2>
+        <p></p>
+        <b>$</b>
+        <div className={styles.addToCart} >+</div>
+      </div>
+    );
   }
 }
 
-export default Item
+export default Item;
