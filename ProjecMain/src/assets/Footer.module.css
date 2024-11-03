@@ -1,0 +1,25 @@
+footer{
+    color:  rgb(76, 77, 78);
+    text-align: center;
+    margin: 0 0 0 0;
+    margin-top: 50px;
+    margin-left: 60px;
+    
+}
+
+footer .socialIcons svg:nth-child(1) {
+    color:blue; 
+    
+  }
+
+
+  /* Optional hover effect */
+  .socialIcons svg:hover {
+    transform: scale(1.5);
+  }
+  footer .socialIcons svg{
+    padding: 20px;
+    
+    
+  }
+ 

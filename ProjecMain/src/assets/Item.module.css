@@ -1,0 +1,88 @@
+main .item{
+    width: 30%;
+    margin-bottom: 50px;
+    background: rgb(202, 207, 211); 
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+main .item img{
+    width: 100%;
+    border-radius: 10px 10px;
+    transition: transform 500ms ease ;
+}
+main .item img:hover{
+  transform: scale(1.05);  
+}
+
+main h2,
+ main p,
+  main b {
+    margin: 10px 20px;
+    color: #333;
+}
+
+main b{
+    color: green;
+}
+
+main .add-to-cart{
+position: absolute;
+right: 20px;
+bottom: 20px;
+background: green;
+width: 35px;
+height: 35px;
+text-align: center;
+line-height: 35px;
+color: white;
+border-radius: 50%;
+cursor: pointer;
+font-weight: 600;
+transition: transform 500ms ease ;
+}
+
+main .add-to-cart:hover{
+    transform: scale(1.5) translateY(-5px);
+}
+
+.item {
+    width: 100%;
+  }
+  
+  .item img {
+    width: 70px;
+  
+    float: left;
+    margin-right: 20px;
+  }
+  .item h2{
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .item b{
+    color: green;
+    font-weight: 600;
+  }
+  header .item{
+    float:left;
+    margin: 20px;
+    margin-bottom:20px ;
+}
+
+.item .delete {
+    color: red;
+    float: right;
+    position: relative;
+    top: -15px;
+    cursor: pointer;
+    transition: color, transform 500ms ease;
+    margin-right: 50px;
+}
+
+.item .delete:hover{
+    color: rgb(252, 110, 110);
+    transform: scale(1.17);
+}
