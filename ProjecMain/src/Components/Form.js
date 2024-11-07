@@ -1,6 +1,25 @@
 import React, { Component } from 'react';
 import styles from '../assets/Form.module.css';
-import users from '../data/MOCK_DATA.json'; // Імпорт даних користувачів
+// Імпортуємо необхідні функції
+import { initializeApp } from "firebase/app";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth"; 
+import { getAnalytics } from "firebase/analytics";
+
+// Конфігурація Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyA09Cwh_qwZUHQpN8g3qSbC1tnjFcifn0g",
+  authDomain: "projecmain.firebaseapp.com",
+  projectId: "projecmain",
+  storageBucket: "projecmain.firebasestorage.app",
+  messagingSenderId: "673856902327",
+  appId: "1:673856902327:web:a5dc55f89151514bb3a932",
+  measurementId: "G-SG7D4XP2J1"
+};
+
+// Ініціалізація Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app); // Ініціалізація auth
+const analytics = getAnalytics(app);
 
 class Form extends Component {
   constructor(props) {
@@ -26,25 +45,25 @@ class Form extends Component {
     const { email, password, isRegistering } = this.state;
 
     if (isRegistering) {
-      // Реєстрація (приклад: перевірка, чи існує вже email)
-      const userExists = users.some((user) => user.email === email);
-      if (userExists) {
-        this.setState({ errorMessage: 'Користувач з таким email вже існує' });
-      } else {
-        alert('Реєстрація успішна!');
-        // Додайте логіку для додавання користувача, якщо потрібно
-      }
+      // Реєстрація користувача
+      createUserWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          alert('Реєстрація успішна!');
+          this.setState({ errorMessage: '' });
+        })
+        .catch((error) => {
+          this.setState({ errorMessage: `Помилка при реєстрації: ${error.message}` });
+        });
     } else {
-      // Авторизація
-      const user = users.find((user) => user.email === email && user.password === password);
-
-      if (user) {
-        alert('Успішна авторизація!');
-        this.setState({ errorMessage: '' });
-        // Логіка авторизації, наприклад, збереження сесії або перенаправлення
-      } else {
-        this.setState({ errorMessage: 'Невірний email або пароль' });
-      }
+      // Авторизація користувача
+      signInWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          alert('Авторизація успішна!');
+          this.setState({ errorMessage: '' });
+        })
+        .catch((error) => {
+          this.setState({ errorMessage: 'Невірний email або пароль' });
+        });
     }
   };
 
@@ -91,4 +110,3 @@ class Form extends Component {
 }
 
 export default Form;
-

@@ -1,35 +1,106 @@
-import React from 'react';
+import React, { Component } from 'react';
+import styles from '../assets/Form.module.css';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 
-import styles from '../assets/Footer.module.css';
+class Form extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      password: '',
+      isRegistering: false,
+      errorMessage: '',
+    };
+  }
 
-import { FaInstagram } from "react-icons/fa";
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
-import { FaViber } from "react-icons/fa";
+  toggleForm = () => {
+    this.setState((prevState) => ({ isRegistering: !prevState.isRegistering }));
+  };
 
-import { FaTelegramPlane } from "react-icons/fa";
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { email, password, isRegistering } = this.state;
+    const auth = getAuth();
 
-import { FaTiktok } from "react-icons/fa";
+    if (isRegistering) {
+      // Реєстрація користувача
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Реєстрація успішна
+          const user = userCredential.user;
+          alert('Реєстрація успішна!');
+          this.setState({ errorMessage: '' });
+        })
+        .catch((error) => {
+          // Помилка при реєстрації
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          this.setState({ errorMessage: `Помилка: ${errorMessage}` });
+        });
+    } else {
+      // Авторизація користувача
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Авторизація успішна
+          const user = userCredential.user;
+          alert('Авторизація успішна!');
+          this.setState({ errorMessage: '' });
+          // Можна додати редирект або збереження сесії
+        })
+        .catch((error) => {
+          // Помилка при авторизації
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          this.setState({ errorMessage: 'Невірний email або пароль' });
+        });
+    }
+  };
 
-
-export default function Footer() {
-  return (
-    <footer>
-<h1>Contact and follow us:</h1>
-<div className={styles.socialIcons}>
-  <a href="https://www.instagram.com/yourprofile" target="_blank" rel="noopener noreferrer">
-    <FaInstagram />
-  </a>
-  <a href="https://www.viber.com/yourprofile" target="_blank" rel="noopener noreferrer">
-    <FaViber />
-  </a>
-  <a href="https://t.me/yourprofile" target="_blank" rel="noopener noreferrer">
-    <FaTelegramPlane />
-  </a>
-  <a href="https://www.tiktok.com/@yourprofile" target="_blank" rel="noopener noreferrer">
-    <FaTiktok />
-  </a>
-</div>
-  
-    </footer>
-  )
+  render() {
+    const { email, password, isRegistering, errorMessage } = this.state;
+    return (
+      <div className={styles.authForm}>
+        <h2>{isRegistering ? 'Реєстрація' : 'Авторизація'}</h2>
+        <form onSubmit={this.handleSubmit}>
+          <div className={styles.formGroup}>
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={this.handleChange}
+              required
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="password">Пароль:</label>
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={this.handleChange}
+              required
+            />
+          </div>
+          {errorMessage && <p className={styles.error}>{errorMessage}</p>}
+          <button type="submit" className={styles.btn}>
+            {isRegistering ? 'Зареєструватися' : 'Увійти'}
+          </button>
+        </form>
+        <p>
+          {isRegistering ? 'Вже маєте акаунт?' : 'Немає акаунта?'}
+          <span onClick={this.toggleForm} className={styles.toggleLink}>
+            {isRegistering ? ' Увійдіть' : ' Реєструйтесь'}
+          </span>
+        </p>
+      </div>
+    );
+  }
 }
+
+export default Form;
+
