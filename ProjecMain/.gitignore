@@ -147,5 +147,4 @@ thumb
 sketch
 
 cypress/screenshots
-
-.node_modules
+node_modules/
