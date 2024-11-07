@@ -45,6 +45,7 @@ describe('Form Component E2E Tests', () => {
       cy.get('input[name="email"]').type('newuser@example.com');  // Новий email для реєстрації
       cy.get('input[name="password"]').type('newpassword123');
       cy.get('button').contains('Зареєструватися').click();
+      
       cy.contains('Реєстрація успішна!').should('exist');  // Перевірка на успішну реєстрацію
     });
   });
