@@ -1,0 +1,86 @@
+.contact{
+    background: white;
+    text-align: center;
+    padding: 5px 0 5px 0 ;
+}
+
+.contact1{
+    background: white;
+    margin: 30px 30px 30px 0;
+    padding: 30px;
+}
+.contact2{
+    background: white;
+    margin: 100px 30px 30px 0;
+    padding: 0;
+}
+.main-content{
+    margin: 30px;
+    display: flex;/* Використання Flexbox для вирівнювання елементів */
+            align-items: flex-start
+}
+.main-content img{
+    margin-left: 300px;
+}
+.main-content2{
+   
+    display: flex;/* Використання Flexbox для вирівнювання елементів */
+    align-items: right;
+    flex-direction: column;
+}
+.contact3{
+     
+    
+    text-shadow: 2px 60px 4px rgba(251, 0, 0, 0.634);
+   height: 100px;
+   margin-left: 5px;
+   margin-top: 30px;
+   text-align: center;
+}
+.main-content3{
+  
+    display: flex;/* Використання Flexbox для вирівнювання елементів */
+    align-items: left;
+
+    margin-left: 400px;
+}
+
+.number{
+    background: white;
+    justify-content: center; /* Horizontally center */
+    align-items: center; 
+    
+}
+
+ .shopCartButton  {
+    float: center;
+    cursor: pointer;
+    transition: color, transform, 500ms ease;
+    margin-top: 0;
+    padding-top: -60px;
+    position: relative;
+    margin-left: 310px;
+    margin-bottom: 30px;
+}
+
+.shopCartButton:hover {
+    color: green;
+    transform: scale(1.17);
+}
+
+ .socialIcons svg:nth-child(1) {
+    color:blue; 
+    
+  }
+
+
+  /* Optional hover effect */
+  .socialIcons svg:hover {
+    transform: scale(1.5);
+  }
+   .socialIcons svg{
+    padding: 20px;
+    
+    
+  }
+ 

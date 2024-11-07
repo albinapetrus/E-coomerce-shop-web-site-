@@ -7,6 +7,7 @@ const config = {
     entry: path.resolve(__dirname, '../src/index.js'),
     output: {
         path: path.resolve(__dirname, '../dist'),
+      
     },
     plugins: [
         new CopyWebpackPlugin({
@@ -19,7 +20,7 @@ const config = {
             ],
         }),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, '../templates/index.html'),
+            template: path.resolve(__dirname, '../public/index.html'),
         }),
     ],
     module: {
@@ -36,6 +37,7 @@ const config = {
                     },
                 ],
             },
+     
         ],
     },
     resolve: {
