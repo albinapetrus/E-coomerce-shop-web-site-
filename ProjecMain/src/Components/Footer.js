@@ -16,6 +16,9 @@ export default function Footer() {
     <footer>
 <h1>Contact and follow us:</h1>
 <div className={styles.socialIcons}>
+{/* Це посилання веде на профіль в Instagram. Атрибут target="_blank" відкриває посилання в новій вкладці, 
+а атрибут rel="noopener noreferrer" забезпечує безпеку, запобігаючи доступу до попередньої сторінки через JavaScript 
+та зменшує ризики фішингу. */}
   <a href="https://www.instagram.com/yourprofile" target="_blank" rel="noopener noreferrer">
     <FaInstagram />
   </a>
