@@ -1,77 +1,112 @@
-// https://eslint.org/docs/latest/use/command-line-interface
-
+// Основна конфігурація ESLint
 const config = {
+    // Налаштування середовища
     env: {
-        browser: true,
-        node: true,
-        es2021: true,
+        browser: true, // Вказує на те, що код призначений для роботи в браузері.
+        node: true,    // Вказує на те, що код призначений для роботи в Node.js.
+        es2021: true,  // Підтримка синтаксису ECMAScript 2021.
     },
+    // Використання готових наборів правил (extends)
     extends: [
-        'eslint:recommended',
-        /* https://www.npmjs.com/package/eslint-plugin-react */
+        'eslint:recommended', // Основний набір рекомендованих правил ESLint.
+        
+        // Рекомендовані правила для React
+        // Документація: https://www.npmjs.com/package/eslint-plugin-react
         'plugin:react/recommended',
-        /* https://www.npmjs.com/package/eslint-plugin-react-hooks */
+
+        // Рекомендовані правила для React Hooks
+        // Документація: https://www.npmjs.com/package/eslint-plugin-react-hooks
         'plugin:react-hooks/recommended',
-        /*https://www.npmjs.com/package/eslint-plugin-import*/
+
+        // Правила для перевірки імпортів
+        // Документація: https://www.npmjs.com/package/eslint-plugin-import
         'plugin:import/errors',
         'plugin:import/warnings',
-        /*https://www.npmjs.com/package/eslint-plugin-unicorn*/
+
+        // Рекомендовані правила для плагіна unicorn (уніфіковані найкращі практики)
+        // Документація: https://www.npmjs.com/package/eslint-plugin-unicorn
         'plugin:unicorn/recommended',
-        /*https://www.npmjs.com/package/eslint-plugin-cypress*/
+
+        // Рекомендовані правила для тестування з Cypress
+        // Документація: https://www.npmjs.com/package/eslint-plugin-cypress
         'plugin:cypress/recommended',
     ],
-    /* https://github.com/import-js/eslint-plugin-import */
+    
+    // Налаштування для конкретних плагінів
+    // Документація: https://github.com/import-js/eslint-plugin-import
     settings: {
         react: {
-            version: 'detect', // React version. "detect" automatically picks the version you have installed.
+            version: 'detect', // Автоматично визначає версію React, встановлену в проєкті.
         },
         'import/resolver': {
             node: {
-                extensions: ['.js', '.jsx'],
+                extensions: ['.js', '.jsx'], // Дозволяє імпорт файлів з розширеннями .js та .jsx.
             },
             webpack: {
-                // if not set, import won't work properly with aliases f.e. import Header from '@components/Header'
-                config: './config/webpack.development.config.js',
+                // Якщо не вказати, імпорт може некоректно працювати з псевдонімами,
+                // наприклад: import Header from '@components/Header'
+                config: './config/webpack.development.config.js', // Шлях до конфігурації Webpack.
             },
         },
     },
-    plugins: ['simple-import-sort', 'react'],
-    ignorePatterns: ['node_modules','src/bootstrap.js',],
+    
+    // Додаткові плагіни
+    plugins: [
+        'simple-import-sort', // Плагін для сортування імпортів.
+        'react', // Плагін для підтримки правил React.
+    ],
+
+    // Ігнорування певних файлів та директорій
+    ignorePatterns: [
+        'node_modules',      // Ігнорує директорію node_modules.
+        'src/bootstrap.js',  // Ігнорує файл src/bootstrap.js.
+    ],
+
+    // Власні правила для ESLint
     rules: {
-        /*https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/filename-case.md*/
+        // Правило для назви файлів (camelCase та PascalCase)
+        // Документація: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/docs/rules/filename-case.md
         'unicorn/filename-case': [
             'error',
             {
                 cases: {
-                    camelCase: true,
-                    pascalCase: true,
+                    camelCase: true,  // Дозволяє camelCase для файлів.
+                    pascalCase: true, // Дозволяє PascalCase для файлів.
                 },
             },
         ],
-        'unicorn/no-empty-file': 'off',
-        'simple-import-sort/exports': 'error',
-        'simple-import-sort/imports': 'error',
-        'import/namespace': [2, { allowComputed: true }],
-        'import/first': 'error',
-        'import/newline-after-import': 'error',
+        
+        'unicorn/no-empty-file': 'off',                // Вимикає правило, що забороняє порожні файли.
+        'simple-import-sort/exports': 'error',         //Вимагає сортування експорту.
+        //'simple-import-sort/imports': 'error',           Вимагає сортування імпортів.
+        'import/namespace': [2, { allowComputed: true }], // Встановлює рівень помилки для помилок імпорту.
+        'import/first': 'error',                       // Імпорт повинен бути першим у файлі.
+        'import/newline-after-import': 'error',        // Потрібен новий рядок після імпорту.
     },
+
+    // Перезапис правил для певних файлів
     overrides: [
         {
+            // Ці правила застосовуються до файлів з розширеннями '*rc.js' та '*.config.js'
             files: ['*rc.js', '*.config.js'],
             rules: {
-                'unicorn/prefer-module': 'off',
+                'unicorn/prefer-module': 'off', // Вимикає вимогу використовувати модулі (ES6).
+                
+                // Для цих файлів дозволено лише kebab-case у назвах.
                 'unicorn/filename-case': [
                     'error',
                     {
                         cases: {
-                            kebabCase: true,
+                            kebabCase: true, // Дозволяє використання kebab-case.
                         },
                     },
                 ],
-                'no-unused-vars': 'off',
+
+                'no-unused-vars': 'off', // Вимикає перевірку на невикористані змінні.
             },
         },
     ],
 };
 
+// Експорт конфігурації для використання у ESLint.
 module.exports = config;

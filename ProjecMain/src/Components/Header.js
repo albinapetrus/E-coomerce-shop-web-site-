@@ -1,11 +1,10 @@
 // Імпортуємо необхідні бібліотеки та компоненти
 import React, { useState } from 'react'; // Імпортуємо React та хук useState для управління станом
 import { FaShoppingCart } from "react-icons/fa"; // Імпортуємо іконку кошика з бібліотеки react-icons
-// import AboutUs from './AboutUs'; // Коментуємо імпорт компонента AboutUs, який, ймовірно, буде використовуватись пізніше
 import { Link } from 'react-router-dom'; // Імпортуємо компонент Link для навігації по маршрутах
 import styles from '../assets/Header.module.css'; // Імпортуємо стилі для компонента Header
 import Order from './Order'; // Імпортуємо компонент Order для відображення кожного товару в кошику
-import Item from './Item'; // Імпортуємо компонент Item, але наразі не використовуємо його в коді
+
 
 // Функція для відображення замовлень
 const showOrders = (orders, onDelete) => {
