@@ -21,6 +21,8 @@ module.exports = defineConfig({
         },
         // Налаштовуємо події Node.js для компонентного тестування
         setupNodeEvents(on, config) {
+            // component testing node events setup code
+            // https://docs.cypress.io/guides/tooling/code-coverage
             // Виконуємо налаштування для тестування покриття коду (coverage)
             // Це дозволяє збирати інформацію про покриття тестами за допомогою `@cypress/code-coverage`.
             // Документація: https://docs.cypress.io/guides/tooling/code-coverage
@@ -39,8 +41,9 @@ module.exports = defineConfig({
     e2e: {
         // Налаштовуємо події Node.js для e2e тестування
         setupNodeEvents(on, config) {
+            // implement node event listeners here
             // Тут можна додати обробники подій для e2e тестування
-    
+
         },
     },
 });
