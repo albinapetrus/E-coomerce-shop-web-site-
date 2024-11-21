@@ -1,0 +1,19 @@
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+import { getAnalytics } from 'firebase/analytics';
+
+// Конфігурація Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyA09Cwh_qwZUHQpN8g3qSbC1tnjFcifn0g",
+  authDomain: "projecmain.firebaseapp.com",
+  projectId: "projecmain",
+  storageBucket: "projecmain.appspot.com",
+  messagingSenderId: "673856902327",
+  appId: "1:673856902327:web:a5dc55f89151514bb3a932",
+  measurementId: "G-SG7D4XP2J1"
+};
+
+// Ініціалізація Firebase
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app); // Експортуємо auth для використання
+export const analytics = getAnalytics(app);

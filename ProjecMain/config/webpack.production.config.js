@@ -1,28 +1,45 @@
+// Імпортуємо функцію merge з пакету 'webpack-merge' для об'єднання базових і конкретних конфігурацій Webpack.
 const { merge } = require('webpack-merge');
+// Імпортуємо базову конфігурацію Webpack з файлу './webpack.config.js'.
 const baseConfig = require('./webpack.config');
 
+// Імпортуємо плагін для екстракції CSS у окремі файли.
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+// Основна конфігурація для продакшн-режиму.
 const config = {
+    // Встановлюємо режим роботи Webpack на 'production', що включає оптимізації для зменшення розміру файлів.
     mode: 'production',
+
+    // Налаштування вихідного файлу. Використовуємо хеш для створення унікального імені файлу, щоб кеш браузера не використовував старі версії.
     output: {
-        filename: 'bundle--[hash:base64].js',
+        filename: 'bundle--[hash:base64].js', // '[hash:base64]' створює унікальний хеш для кожної збірки.
     },
-    plugins: [new MiniCssExtractPlugin()],
+
+    // Плагіни для додавання додаткової функціональності до процесу зборки.
+    plugins: [
+        // Плагін для екстракції CSS в окремий файл.
+        new MiniCssExtractPlugin(),
+    ],
+
+    // Модульні правила для обробки різних типів файлів.
     module: {
         rules: [
             {
+                // Правило для обробки CSS-файлів.
                 test: /\.css$/i,
                 use: [
+                    // Завантажуємо CSS як окремий файл, замість додавання його в JavaScript.
                     MiniCssExtractPlugin.loader,
                     {
+                        // Завантажуємо сам CSS.
                         loader: 'css-loader',
                         options: {
                             modules: {
-                                mode: 'local',
-                                localIdentName: '[name]__[local]',
-                                // namedExport: true, case 1;
-                                namedExport: false,
+                                // Використовуємо CSS модулі, що дає можливість локально ізолювати стилі для кожного компонента.
+                                mode: 'local', // Локальний режим модулів CSS.
+                                localIdentName: '[name]__[local]', // Формат імен для класів, зокрема додається ім'я файлу та локальний ідентифікатор.
+                                // namedExport: false, // Коментарі для імпорту класів через експорти, вимкнено для локальних стилів.
                             },
                         },
                     },
@@ -32,4 +49,5 @@ const config = {
     },
 };
 
+// Об'єднуємо базову конфігурацію з цією специфічною конфігурацією за допомогою merge.
 module.exports = merge(baseConfig, config);
