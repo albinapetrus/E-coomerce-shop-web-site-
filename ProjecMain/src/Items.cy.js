@@ -1,6 +1,6 @@
 import React from 'react';
-import { mount } from 'cypress/react'; // Make sure you import the mount method
-import { Item } from './Components/Item';  // Import the Items component
+import { mount } from 'cypress/react'; 
+import { Item } from './Components/Item';  
 
 
 describe('Item component', () => {
@@ -12,10 +12,10 @@ describe('Item component', () => {
       price: 100,
     };
 
-    const mockOnAdd = cy.stub(); // Create the mock function
+    const mockOnAdd = cy.stub(); 
 
-    mount(<Item item={mockItem} onAdd={mockOnAdd} />); // Mount the Item component with the required props
+    mount(<Item item={mockItem} onAdd={mockOnAdd} />); 
 
-    cy.get('.Item-module__add-to-cart').should('exist'); // Check if the "Add to cart" button exists
+    cy.get('.Item-module__add-to-cart').should('exist'); 
   });
 });
