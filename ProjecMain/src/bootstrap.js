@@ -1,11 +1,25 @@
-import App from './App';
-import React from 'react';
+// Імпортується компонент `App` за замовчуванням із файлу './App'.
+// Це означає, що `App` є компонентом, який експортується за замовчуванням з цього файлу.
+import App from './App'; 
 
+// Імпортується бібліотека React, яка потрібна для використання JSX (JavaScript XML),
+// синтаксису, що дозволяє писати HTML-подібний код у JavaScript.
+import React from 'react'; 
+
+// Імпортується функція `createRoot` з пакету `react-dom/client`.
+// `createRoot` використовується для створення кореневого контейнера,
+// в якому рендериться React-компонент у певному елементі DOM.
 import { createRoot } from 'react-dom/client';
-// import { default as App} from './App';
 
-// import { App } from './App';
+
+// Вибір елемента DOM з ідентифікатором 'root-c3', у якому буде рендеритися React-компонент.
+// Цей елемент зазвичай визначається у HTML-файлі, де розміщується React-додаток.
 const domElement = document.querySelector('#root-c3');
+
+// Створення кореневого контейнера React з вибраним елементом DOM.
+// У цьому контейнері буде рендеритися дерево компонентів React.
 const root = createRoot(domElement);
 
+// Рендеринг компонента `App` всередині кореневого контейнера `root`.
+// JSX `<App />` представляє екземпляр компонента.
 root.render(<App />);
