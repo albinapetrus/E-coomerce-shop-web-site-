@@ -29,7 +29,7 @@ export function useAuth() {
       setErrorMessage(''); // Очищаємо повідомлення про помилку
     } catch (error) {
       // Встановлюємо повідомлення про помилку, якщо email або пароль невірний
-      alert('Невірний email або пароль');
+       setErrorMessage('Невірний email або пароль ');  
     }
   };
 

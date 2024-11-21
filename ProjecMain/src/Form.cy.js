@@ -31,6 +31,7 @@ describe('Form component', () => {
       .type('wrongpassword'); // Вводимо неправильний пароль
     cy.get('button[type="submit"]') // Знаходимо кнопку "Увійти"
       .click(); // Клікаємо на кнопку
-    cy.contains('Невірний email або пароль').should('exist'); // Перевіряємо, чи з'являється помилка
+     
+      cy.get('error').should('exist'); 
   });
 });
