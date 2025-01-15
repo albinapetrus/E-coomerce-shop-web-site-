@@ -10,7 +10,7 @@
         "build:dev": "webpack build -c config/webpack.development.config.js",
         "lint": "eslint --ext .js,.jsx --max-warnings 0 ./src",
         "lint:fix": "eslint --fix src",
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "jest",
         "prepare": "husky install",
         "test:ct": "cypress run --component --browser chrome",
         "test:open": "cypress open",
